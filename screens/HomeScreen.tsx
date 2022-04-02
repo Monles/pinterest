@@ -11,11 +11,21 @@ export default function HomeScreen({
 	return (
 		<ScrollView>
 			<View style={styles.container}>
-				<View style={{ backgroundColor: "#94ffa955", flex: 1 }}>
-					<Pin pin={pins[0]} />
+				{/* 1st Column */}
+				<View style={styles.column}>
+					{pins
+						.filter((_, index) => index % 2 === 0)
+						.map((pin) => (
+							<Pin pin={pin} key={pin.id} />
+						))}
 				</View>
-				<View style={{ backgroundColor: "#cd94ff55", flex: 1 }}>
-					<Pin pin={pins[1]} />
+				{/* 2nd column */}
+				<View style={styles.column}>
+					{pins
+						.filter((_, index) => index % 2 === 1)
+						.map((pin) => (
+							<Pin pin={pin} key={pin.id} />
+						))}
 				</View>
 			</View>
 		</ScrollView>
@@ -26,5 +36,8 @@ const styles = StyleSheet.create({
 	container: {
 		padding: 10,
 		flexDirection: "row",
+	},
+	column: {
+		flex: 1,
 	},
 });
