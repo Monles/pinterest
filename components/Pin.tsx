@@ -22,7 +22,7 @@ const pin = (props) => {
 					source={{
 						uri: image,
 					}}
-					style={(styles.image, { aspectRatio: ratio })}
+					style={[styles.image, { aspectRatio: ratio }]}
 				/>
 
 				<Pressable onPress={onLike} style={styles.heartBtn}>
