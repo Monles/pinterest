@@ -1,29 +1,66 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { Entypo, Feather } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, Image, ScrollView } from "react-native";
+import pins from "../assets/data/pins";
+import MasonryList from "../components/MasonryList";
+import { Text, View } from "../components/Themed";
 
 export default function ProfileScreen() {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Profile Screen</Text>
-		</View>
+		<ScrollView style={styles.container}>
+			<View style={styles.header}>
+				<View style={styles.icons}>
+					<Feather name="share" size={24} color="black" style={styles.icon} />
+					<Entypo
+						name="dots-three-horizontal"
+						size={24}
+						color="black"
+						style={styles.icon}
+					/>
+				</View>
+				<Image
+					source={{
+						uri: "https://images.unsplash.com/photo-1648854830722-c3f5e1aed8f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
+					}}
+					style={styles.image}
+				/>
+				<Text style={styles.title}>Monles Yen</Text>
+				<Text style={styles.subtitle}>456 followers | 534 followings</Text>
+			</View>
+			<MasonryList pins={pins} />
+		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
+		width: "100%",
 	},
 	title: {
 		fontSize: 20,
-		fontWeight: 'bold',
+		fontWeight: "bold",
+		margin: 10,
 	},
-	separator: {
-		marginVertical: 30,
-		height: 1,
-		width: '80%',
+	subtitle: {
+		color: "#181818",
+		fontWeight: "600",
+		margin: 10,
+	},
+	image: {
+		width: 200,
+		aspectRatio: 1,
+		borderRadius: 200,
+		marginVertical: 10,
+	},
+	header: {
+		alignItems: "center",
+	},
+	icons: {
+		flexDirection: "row",
+		alignSelf: "flex-end",
+		padding: 10,
+	},
+	icon: {
+		paddingHorizontal: 10,
 	},
 });

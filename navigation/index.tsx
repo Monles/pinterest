@@ -114,7 +114,7 @@ function BottomTabNavigator() {
 				name="TabTwo"
 				component={ProfileScreen}
 				options={{
-					title: "Tab Two",
+					title: "Profile",
 					tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
 				}}
 			/>
